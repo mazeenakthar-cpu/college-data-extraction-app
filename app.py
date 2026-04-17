@@ -3,7 +3,7 @@ import pandas as pd
 
 st.set_page_config(page_title="College Data Explorer", layout="wide")
 
-st.title("🎓 College Data Extraction & Analysis")
+st.title("College Data Extraction & Analysis")
 
 # Upload file
 uploaded_file = st.file_uploader("Upload CSV File", type=["csv"])
@@ -16,22 +16,22 @@ if uploaded_file is not None:
 
     st.sidebar.header("Filters")
 
-    # 🔍 Search by college name
+    # Search by college name
     search = st.sidebar.text_input("Search College Name")
 
-    # 📍 District filter
+    # District filter
     district = st.sidebar.multiselect(
         "Select District",
         options=df["District"].unique()
     )
 
-    # 🎓 Branch filter
+    # Branch filter
     branch = st.sidebar.multiselect(
         "Select Branch",
         options=df["Branch"].unique()
     )
 
-    # 🏫 College Type filter
+    # College Type filter
     if "Type" in df.columns:
         college_type = st.sidebar.multiselect(
             "Select College Type",
@@ -40,7 +40,7 @@ if uploaded_file is not None:
     else:
         college_type = []
 
-    # 🧠 Apply filters
+    # Apply filters
     filtered_df = df.copy()
 
     if search:
@@ -66,7 +66,7 @@ if uploaded_file is not None:
     st.subheader("Filtered Results")
     st.dataframe(filtered_df)
 
-    # 📥 Download filtered data
+    # Download filtered data
     csv = filtered_df.to_csv(index=False).encode('utf-8')
 
     st.download_button(
