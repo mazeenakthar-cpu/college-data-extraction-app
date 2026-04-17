@@ -1,5 +1,2 @@
 streamlit
 pandas
-app.py
-college.csv
-README.md
